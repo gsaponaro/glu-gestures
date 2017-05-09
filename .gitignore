@@ -1,3 +1,9 @@
+# Linux temp files
+*~
+
+# Build products
+/build*/
+
 # Compiled Object files
 *.slo
 *.lo
