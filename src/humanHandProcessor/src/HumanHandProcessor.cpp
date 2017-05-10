@@ -1,47 +1,47 @@
 /*
- * Copyright: (C) 2015 VisLab, Institute for Systems and Robotics,
+ * Copyright: (C) 2017 VisLab, Institute for Systems and Robotics,
  *                     Istituto Superior Técnico, Lisbon, Portugal
  * Author: Giovanni Saponaro
  * CopyPolicy: Released under the terms of the GNU GPL v2.0
  */
 
-#include "gesture.h"
+#include "HumanHandProcessor.h"
 
 using namespace std;
 using namespace yarp::os;
 
 /* RateThread class */
 
-GestureThread::GestureThread(unsigned int _period)
+HumanHandProcessorThread::HumanHandProcessorThread(unsigned int _period)
 : RateThread(_period)
 {
 }
 
-GestureThread::~GestureThread()
+HumanHandProcessorThread::~HumanHandProcessorThread()
 {
 }
 
-bool GestureThread::threadInit()
+bool HumanHandProcessorThread::threadInit()
 {
     return true;
 }
 
-void GestureThread::run()
+void HumanHandProcessorThread::run()
 {
 
 }
 
-void GestureThread::threadRelease()
+void HumanHandProcessorThread::threadRelease()
 {
 
 }
 
 /* RFModule class */
 
-bool GestureModule::configure(ResourceFinder &rf)
+bool HumanHandProcessorModule::configure(ResourceFinder &rf)
 {
     string moduleName;
-    moduleName = rf.check( "name",Value("gesture") ).asString();
+    moduleName = rf.check( "name",Value("humanHandProcessor") ).asString();
     setName(moduleName.c_str());
     
     inSkelPort.open(("/"+moduleName+"/skel:i").c_str());
@@ -50,7 +50,7 @@ bool GestureModule::configure(ResourceFinder &rf)
     return true;
 }
 
-bool GestureModule::interruptModule()
+bool HumanHandProcessorModule::interruptModule()
 {
     inSkelPort.interrupt();
     outHandPort.interrupt();
@@ -58,14 +58,14 @@ bool GestureModule::interruptModule()
 }
 
 
-bool GestureModule::close()
+bool HumanHandProcessorModule::close()
 {
     inSkelPort.close();
     outHandPort.close();
     return true;
 }
 
-bool GestureModule::updateModule()
+bool HumanHandProcessorModule::updateModule()
 {
     const int expSkelSize = 91;
     Bottle *skel = inSkelPort.read(true);
@@ -93,7 +93,7 @@ bool GestureModule::updateModule()
     return true;
 }
 
-double GestureModule::getPeriod()
+double HumanHandProcessorModule::getPeriod()
 {
     return 0.0; // sync with incoming data
 }

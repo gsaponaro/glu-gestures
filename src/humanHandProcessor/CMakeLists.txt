@@ -5,7 +5,7 @@
 
 cmake_minimum_required(VERSION 2.8.9)
 
-project(gestureModule)
+project(humanHandProcessor)
 
 find_package(YARP)
 find_package(ICUBcontrib)

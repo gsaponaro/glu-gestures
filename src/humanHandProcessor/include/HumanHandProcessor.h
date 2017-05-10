@@ -1,12 +1,12 @@
 /*
- * Copyright: (C) 2015 VisLab, Institute for Systems and Robotics,
+ * Copyright: (C) 2017 VisLab, Institute for Systems and Robotics,
  *                     Istituto Superior Técnico, Lisbon, Portugal
  * Author: Giovanni Saponaro
  * CopyPolicy: Released under the terms of the GNU GPL v2.0
  */
 
-#ifndef GESTURE_H
-#define GESTURE_H
+#ifndef HUMAN_HAND_PROCESSOR_H
+#define HUMAN_HAND_PROCESSOR_H
 
 #include <iostream>
 #include <string>
@@ -19,11 +19,11 @@
 
 /* RateThread class */
 
-class GestureThread : public yarp::os::RateThread
+class HumanHandProcessorThread : public yarp::os::RateThread
 {
 public:
-    GestureThread(unsigned int _period);
-    ~GestureThread();
+    HumanHandProcessorThread(unsigned int _period);
+    ~HumanHandProcessorThread();
     bool threadInit();
     void run();
     void threadRelease();
@@ -31,10 +31,10 @@ public:
 
 /* RFModule class */
 
-class GestureModule : public yarp::os::RFModule
+class HumanHandProcessorModule : public yarp::os::RFModule
 {
 private:
-    //GestureThread *thr;
+    //HumanHandProcessorThread *thr;
 
     yarp::os::BufferedPort<yarp::os::Bottle> inSkelPort;
     
@@ -49,4 +49,4 @@ public:
     bool updateModule();
 };
 
-#endif // __GESTURE_H__
+#endif // __HUMAN_HAND_PROCESSOR_H__

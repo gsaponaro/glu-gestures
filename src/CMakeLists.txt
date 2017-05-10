@@ -15,4 +15,4 @@ include(ICUBcontribHelpers)
 include(ICUBcontribOptions)
 icubcontrib_set_default_prefix()
 
-add_subdirectory(gestureModule)
+add_subdirectory(humanHandProcessor)
