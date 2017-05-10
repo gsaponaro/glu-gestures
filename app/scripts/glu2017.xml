@@ -13,7 +13,7 @@
         </module>
 
         <module>
-                <name>gestureModule</name>
+                <name>humanHandProcessor</name>
                 <node>localhost</node>
         </module>
 
@@ -31,7 +31,7 @@
 
         <connection>
                 <from>/OpenNI2/userSkeleton:o</from>
-                <to>/gesture/skel:i</to>
+                <to>/humanHandProcessor/skel:i</to>
         </connection>
 
         <connection>
