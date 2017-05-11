@@ -79,7 +79,7 @@ bool HumanHandProcessorModule::updateModule()
         double oy = rhY - tY;
         double oz = rhZ - tZ;
 
-        yDebug("rh (%.2f %.2f %.2f) - t (%.2f %.2f %.2f) = (%.2f %.2f %.2f)", rhX, rhY, rhZ, tX, tY, tZ, ox, oy, oz);
+        //yDebug("rh (%.2f %.2f %.2f) - t (%.2f %.2f %.2f) = (%.2f %.2f %.2f)", rhX, rhY, rhZ, tX, tY, tZ, ox, oy, oz);
 
         // x - horizontal, positive right (person's point of view)
         // y - vertical, positive upwards
