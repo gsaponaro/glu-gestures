@@ -81,10 +81,9 @@ bool HumanHandProcessorModule::updateModule()
 
         yDebug("rh (%.2f %.2f %.2f) - t (%.2f %.2f %.2f) = (%.2f %.2f %.2f)", rhX, rhY, rhZ, tX, tY, tZ, ox, oy, oz);
 
-        // now:
-        // x - orthogonal to human torso (positive towards person's back)
+        // x - horizontal, positive right (person's point of view)
         // y - vertical, positive upwards
-        // z - horizontal, positive left to the person (right when seen on screen)
+        // z - orthogonal to human torso (positive towards person's back)
 
         // horizontal normalization factor, to account for variability in people
         // height
