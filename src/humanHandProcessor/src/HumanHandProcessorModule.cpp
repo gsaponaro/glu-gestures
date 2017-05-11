@@ -61,8 +61,8 @@ bool HumanHandProcessorModule::updateModule()
         // HEAD NECK LEFT_SHOULDER RIGHT_SHOULDER LEFT_ELBOW RIGHT_ELBOW
         // LEFT_HAND RIGHT_HAND TORSO LEFT_HIP RIGHT_HIP LEFT_KNEE RIGHT_KNEE
         // LEFT_FOOT RIGHT_FOOT
-        const int rightHandJointIdx = 8;
-        const int torsoJointIdx = 9;
+        const int rightHandJointIdx = 7;
+        const int torsoJointIdx = 8;
 
         // right hand coordinates, not normalized
         const double rhX = skel->get(1+rightHandJointIdx*jointSize+1).asList()->get(0).asDouble();
@@ -78,6 +78,8 @@ bool HumanHandProcessorModule::updateModule()
         double ox = rhX - tX;
         double oy = rhY - tY;
         double oz = rhZ - tZ;
+
+        yDebug("rh (%.2f %.2f %.2f) - t (%.2f %.2f %.2f) = (%.2f %.2f %.2f)", rhX, rhY, rhZ, tX, tY, tZ, ox, oy, oz);
 
         // now:
         // x - orthogonal to human torso (positive towards person's back)
