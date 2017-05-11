@@ -5,8 +5,8 @@
  * CopyPolicy: Released under the terms of the GNU GPL v2.0
  */
 
-#ifndef HUMAN_HAND_PROCESSOR_H
-#define HUMAN_HAND_PROCESSOR_H
+#ifndef HUMAN_HAND_PROCESSOR_MODULE_H
+#define HUMAN_HAND_PROCESSOR_MODULE_H
 
 #include <iostream>
 #include <string>
@@ -17,30 +17,15 @@
 #include <yarp/os/RateThread.h>
 #include <yarp/os/RFModule.h>
 
-/* RateThread class */
-
-class HumanHandProcessorThread : public yarp::os::RateThread
-{
-public:
-    HumanHandProcessorThread(unsigned int _period);
-    ~HumanHandProcessorThread();
-    bool threadInit();
-    void run();
-    void threadRelease();
-};
-
-/* RFModule class */
-
 class HumanHandProcessorModule : public yarp::os::RFModule
 {
 private:
-    //HumanHandProcessorThread *thr;
 
     yarp::os::BufferedPort<yarp::os::Bottle> inSkelPort;
-    
     yarp::os::BufferedPort<yarp::os::Bottle> outHandPort;
 
 public:
+
     bool configure(yarp::os::ResourceFinder &rf);
     bool interruptModule();
     bool close();
@@ -49,4 +34,4 @@ public:
     bool updateModule();
 };
 
-#endif // __HUMAN_HAND_PROCESSOR_H__
+#endif // HUMAN_HAND_PROCESSOR_MODULE_H

@@ -5,38 +5,10 @@
  * CopyPolicy: Released under the terms of the GNU GPL v2.0
  */
 
-#include "HumanHandProcessor.h"
+#include "HumanHandProcessorModule.h"
 
 using namespace std;
 using namespace yarp::os;
-
-/* RateThread class */
-
-HumanHandProcessorThread::HumanHandProcessorThread(unsigned int _period)
-: RateThread(_period)
-{
-}
-
-HumanHandProcessorThread::~HumanHandProcessorThread()
-{
-}
-
-bool HumanHandProcessorThread::threadInit()
-{
-    return true;
-}
-
-void HumanHandProcessorThread::run()
-{
-
-}
-
-void HumanHandProcessorThread::threadRelease()
-{
-
-}
-
-/* RFModule class */
 
 bool HumanHandProcessorModule::configure(ResourceFinder &rf)
 {

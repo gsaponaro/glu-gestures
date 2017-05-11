@@ -8,7 +8,7 @@
 #include <yarp/os/Network.h>
 #include <yarp/os/ResourceFinder.h>
 
-#include "HumanHandProcessor.h"
+#include "HumanHandProcessorModule.h"
 
 using namespace yarp::os;
 
