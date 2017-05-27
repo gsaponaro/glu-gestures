@@ -8,6 +8,7 @@
 \usepackage[utf8]{inputenc} % input - type accented characters directly from keyboard
 \usepackage[english]{babel} % internationalization - hyphenation, typographic rules for one or more languages
 
+\usepackage[nolist]{acronym}
 \usepackage{hyperref}
 
 \title{Interactive Learning of Human Gestures, Language and Affordances}
@@ -19,7 +20,8 @@
 \email{gsaponaro@isr.tecnico.ulisboa.pt, giampi@kth.se, l.jamone@qmul.ac.uk, alex@isr.tecnico.ulisboa.pt}
 
 % custom commands
-\newcommand{\ie}{i.\,e.} % from INTERSPEECH template
+\newcommand{\eg}{e.\,g.}
+\newcommand{\ie}{i.\,e.}
 
 % examples and useful stuff from INTERSPEECH template
 
@@ -53,6 +55,11 @@
 % For technical reasons, the proceedings editor will strip all active links from the papers during processing. Hyperlinks can be included in your paper, if written in full, e.\,g.\ ``http://www.foo.com/index.html''. The link text must be all black.
 % Please make sure that they present no problems in printing to paper.
 
+% list of acronyms
+\begin{acronym}
+\acro{HMM}{Hidden Markov Model}
+\end{acronym}
+
 \begin{document}
 
 \maketitle
@@ -65,7 +72,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-blah
+In neuroscience research, visuomotor neurons~(\ie, neurons that are activated by visual stimuli) have been a subject of ample study~\cite{rizzolatti:2001:nrn}. Mirror neurons are one class of such neurons that responds to action and object interaction, both when the agent acts and when it observes the same action performed by others, hence the name ``mirror''.
+
+This work is framed within the theory of mirror neurons. We show that a cognitive robot can first acquire knowledge by sensing and self-exploring its surrounding environment~(\eg, by interacting with available objects and building up an affordance representation of the interactions and their outcomes) and, then, the robot is capable of generalizing its acquired knowledge while observing another agent~(\eg, a human person) performing similar physical actions to the ones performed during robot training.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Related Work}
@@ -75,7 +84,22 @@ blah
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Approach}
 
-blah
+We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods~(\acp{HMM}).
+
+% TO TRANSLATE
+% a) Per esempio, si potrebbe fare la stima delle azioni e stimare la forma
+% dell'oggetto basandoci sull'azione stimata e sull'effetto ottenuto,
+% oppure b) viceversa. Cioè, un obbiettivo dello studio potrebbe essere di
+% dimostrare che c) quello che ha imparato il robot in soggettiva
+% (conoscendo per certo l'identità delle azioni), può essere applicato
+% anche nell'osservazione di un nuovo agente (l'uomo), se le azioni
+% possono essere stimate con le tue HMM. Non so se l'idea è chiara.
+%
+% Il
+% motivo per il quale l'obbiettivo può sembrare un po' vago è che le
+% reti bayesiane sono molto flessibili e si possono usare per obbiettivi
+% diversi, per cui abbiamo molta libertà di scelta sull'esperimento da
+% effettuare.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Results}
