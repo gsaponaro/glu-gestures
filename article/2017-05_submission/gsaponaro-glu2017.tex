@@ -9,6 +9,8 @@
 \usepackage[english]{babel} % internationalization - hyphenation, typographic rules for one or more languages
 
 \usepackage[nolist]{acronym}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{hyperref}
 
 \title{Interactive Learning of Human Gestures, Language and Affordances}
@@ -57,6 +59,7 @@
 
 % list of acronyms
 \begin{acronym}
+\acro{BN}{Bayesian Network}
 \acro{HMM}{Hidden Markov Model}
 \end{acronym}
 
@@ -86,25 +89,17 @@ blah
 
 We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods~(\acp{HMM}).
 
-% TO TRANSLATE
-% a) Per esempio, si potrebbe fare la stima delle azioni e stimare la forma
-% dell'oggetto basandoci sull'azione stimata e sull'effetto ottenuto,
-% oppure b) viceversa. Cioè, un obbiettivo dello studio potrebbe essere di
-% dimostrare che c) quello che ha imparato il robot in soggettiva
-% (conoscendo per certo l'identità delle azioni), può essere applicato
-% anche nell'osservazione di un nuovo agente (l'uomo), se le azioni
-% possono essere stimate con le tue HMM. Non so se l'idea è chiara.
-%
-% Il
-% motivo per il quale l'obbiettivo può sembrare un po' vago è che le
-% reti bayesiane sono molto flessibili e si possono usare per obbiettivi
-% diversi, per cui abbiamo molta libertà di scelta sull'esperimento da
-% effettuare.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Results}
 
-blah
+Main goal: show that what the robot has learned subjectively or alone (self-exploration knowing the action identity as a prior), can be used when observing a new agent (human), provided that the actions can be estimated with \acp{HMM}.
+
+\acp{BN} are flexible can be used for different purposes
+
+a) estimate actions and object shape, based on inferred action (gesture) and resulting effect. $p(A, O \mid G, E)$
+
+b) the opposite: $p(G, E \mid A, O)$
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions and Future Work}
