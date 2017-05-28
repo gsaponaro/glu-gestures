@@ -8,6 +8,11 @@ addpath('./matlab')
 test_path = '/home/g/Dropbox/phd/work-2017/work-2017-05/glu2017_oni_videos';
 
 %% load HMM gesture models trained for CR-HRI 2013 article
+% hmm1: tap
+% no touch model
+% hmm3: grasp
+% hmm4: push
+% hmm0: garbage
 load HMM_M3_Q6_mixsplit;
 
 %% load 2017 test data (removing first 2 columns)
@@ -19,9 +24,14 @@ tap1 = cell2mat(tap1);
 clear tap1_fid;
 
 %% test data segmentation
-% TODO real values
-tap1_seglim = [90 132;
-              100 135];
+tap1_seglim = [206 391 547;
+               361 521 674];
+% they were determined by inspecting yarp ppm image numbers:
+% [345 530 686;
+%  500 660 813]
+% and corresponding timestamps:
+% [1495933420.892006 1495933426.944280 1495933432.054602;
+%  1495933425.965962 1495933431.200979 1495933436.206443]
 
 tap1_cell = separate_sequence(tap1, tap1_seglim);
 
@@ -31,16 +41,14 @@ tap1_BNT = transpose_cell_array(tap1_cell);
 
 %% classification
 fprintf('===============================================================\n\n');
-
-% TODO: also test with hmm0 (garbage)
-
-fprintf('classification of segmented sequence tap1 (ground truth: class1):\n');
+fprintf('classification of segmented sequence tap1 (ground truth: hmm1):\n');
 counter = zeros(4,1);
 for ex = 1:length(tap1_BNT)
     score(1) = mhmm_logprob(tap1_BNT{ex}, hmm1_prior, hmm1_trans, hmm1_mu, hmm1_Sigma, hmm1_mixmat);
-    %score(2) = mhmm_logprob(tap1_BNT{ex}, hmm2_prior, hmm2_trans, hmm2_mu, hmm2_Sigma, hmm2_mixmat);
+    score(2) = mhmm_logprob(tap1_BNT{ex}, hmm0_prior, hmm0_trans, hmm0_mu, hmm0_Sigma, hmm0_mixmat); % garbage
     score(3) = mhmm_logprob(tap1_BNT{ex}, hmm3_prior, hmm3_trans, hmm3_mu, hmm3_Sigma, hmm3_mixmat);
     score(4) = mhmm_logprob(tap1_BNT{ex}, hmm4_prior, hmm4_trans, hmm4_mu, hmm4_Sigma, hmm4_mixmat);
+    score
     [~,local_winner] = max(score);
     counter(local_winner) = counter(local_winner)+1;
     fprintf('sequence %d, winner: hmm%d\n', ex, local_winner);
