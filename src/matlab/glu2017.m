@@ -21,6 +21,7 @@ tap1 = textscan(tap1_fid, '%d %f %f %f %f');
 tap1{1,1} = [];
 tap1{1,2} = [];
 tap1 = cell2mat(tap1);
+tap1 = tap1 / 1000; % compatibility with 2013 models
 clear tap1_fid;
 
 %% test data segmentation
