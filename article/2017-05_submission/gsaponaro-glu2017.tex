@@ -11,6 +11,7 @@
 \usepackage[nolist]{acronym}
 \usepackage{amsmath}
 \usepackage{amssymb}
+%\usepackage{epigraph}
 \usepackage{hyperref}
 
 \title{Interactive Robot Learning of Gestures, Language and Affordances}
@@ -21,9 +22,13 @@
   $^3$ARQ~(Advanced Robotics at Queen Mary)\\School of Electronic Engineering and Computer Science, Queen Mary University of London, UK}
 \email{gsaponaro@isr.tecnico.ulisboa.pt, giampi@kth.se, l.jamone@qmul.ac.uk, alex@isr.tecnico.ulisboa.pt}
 
-% custom commands
+% custom commands and frequent expressions that require typesetting care
 \newcommand{\eg}{e.\,g.}
 \newcommand{\ie}{i.\,e.}
+\newcommand{\HR}{Human--Robot}
+\newcommand{\HRI}{\HR{} Interaction}
+\newcommand{\hr}{human--robot}
+\newcommand{\hri}{\hr{} interaction}
 
 % examples and useful stuff from INTERSPEECH template
 
@@ -75,46 +80,48 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-Humans have the ability of working successfully in groups, meaning that they can agree on common goals~(\eg, through verbal and non-verbal communication), work towards the execution of these goals in a coordinated way, and understand each other's physical actions~(\eg, body gestures) towards the realization of final target. Team coordination and mutual understanding is effective because of~(i) the capacity to \emph{adapt} to unforeseen events in the environment, and re-plan one's actions in real time if necessary, and~(ii) a common motor repertoire and action model, which permits us to understand a partner's physical actions and manifested intentions as if they were our own.
+%\epigraph{If language was given to men to conceal their thoughts, then gesture's purpose was to disclose them.}{John Napier, \emph{Hands}}
+
+Humans have the ability of working successfully in groups, meaning that they can agree on common goals~(\eg, through verbal and non-verbal communication), work towards the execution of these goals in a coordinated way, and understand each other's physical actions~(\eg, body gestures) towards the realization of final target. Team coordination and mutual understanding~\cite{ramnani:2004:natureneuro} is effective because of~(i) the capacity to \emph{adapt} to unforeseen events in the environment, and re-plan one's actions in real time if necessary, and~(ii) a common motor repertoire and action model, which permits us to understand a partner's physical actions and manifested intentions as if they were our own.
 
 In neuroscience research, visuomotor neurons~(\ie, neurons that are activated by visual stimuli) have been a subject of ample study~\cite{rizzolatti:2001:nrn}. Mirror neurons are one class of such neurons that responds to action and object interaction, both when the agent acts and when it observes the same action performed by others, hence the name ``mirror''.
 
-Robotics is progressing fast, and yet robots have not reached from the level of performance that would enable them to work with humans in routine activities in a flexible and adaptive way.
+Robotics is progressing fast, and yet robots have not reached the level of performance that would enable them to work with humans in routine activities in a flexible and adaptive way.
 
 This work is framed within the theory of mirror neurons, and contributes towards testing it on humanoid and cognitive robots. We show that a robot can first acquire knowledge by sensing and self-exploring its surrounding environment~(\eg, by interacting with available objects and building up an affordance representation of the interactions and their outcomes) and, as a result, the robot is capable of generalizing its acquired knowledge while observing another agent~(\eg, a human person) performing similar physical actions to the ones performed during robot training.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Related Work}
 
-blah
+In~\cite{salvi:2012:smcb}, the action information was known a~priori~(it was assumed that in a particular experiment the robot was performing, for example, a ``grasp'' action, and the model was aware of this information). By contrast, in this work we relax that assumption, and we estimate the action performed by a human user during a \hr{} collaborative task. We do this estimation by employing statistical inference methods and \acp{HMM}.
+
+Several psychology studies~\cite{aglioti:2008:basketball,knoblich:2001:psychsci} indicate that perceptual input can be linked with the human action system for predicting future outcomes of actions, \ie, the effect of actions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Approach}
 
-We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods~(\acp{HMM}).
+We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods and \acp{HMM}.
+
+In the experimental section, we will show that what the robot has learned subjectively or alone~(by self-exploration, knowing the action identity as a prior~\cite{salvi:2012:smcb}), can subsequently be used when observing a new agent~(human), provided that the actions can be estimated with \acp{HMM} as in~\cite{saponaro:2013:crhri}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Experimental Results}
 
-Main goal: show that what the robot has learned subjectively or alone (self-exploration knowing the action identity as a prior), can be used when observing a new agent (human), provided that the actions can be estimated with \acp{HMM}.
+\acp{BN} are flexible, they can be used for different purposes
 
-\acp{BN} are flexible can be used for different purposes
+\subsection{Object Shape Estimation}
 
-a) estimate actions and object shape, based on inferred action (gesture) and resulting effect. $p(A, O \mid G, E)$
+estimate object shape, based on inferred action (gesture) and resulting effect. $p(O \mid A, E)$
 
-b) the opposite: $p(G, E \mid A, O)$
+\subsection{Effect Prediction}
+
+$p(E \mid A, O)$
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions and Future Work}
 
 blah
-
-extra refs:
-
-http://www.nature.com/neuro/journal/v7/n1/abs/nn1168.html
-
-http://journals.sagepub.com/doi/10.1111/1467-9280.00387
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \section{Acknowledgements}
