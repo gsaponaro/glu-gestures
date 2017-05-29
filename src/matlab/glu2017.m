@@ -3,9 +3,8 @@
 
 %% configure BNT and other paths
 addpath(genpath('~/matlab/toolbox/FullBNT-1.0.4'))
-addpath('./matlab')
-
-test_path = '/home/g/Dropbox/phd/work-2017/work-2017-05/glu2017_oni_videos';
+%addpath('./matlab')
+test_path = [getenv('HOME') '/Dropbox/phd/work-2017/work-2017-05/glu2017_oni_videos'];
 
 %% load HMM gesture models trained for CR-HRI 2013 article
 % hmm1: tap
