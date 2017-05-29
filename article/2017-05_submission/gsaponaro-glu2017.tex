@@ -66,6 +66,7 @@
 \begin{acronym}
 \acro{BN}{Bayesian Network}
 \acro{HMM}{Hidden Markov Model}
+\acro{MTRNN}{Multiple Timescales Recurrent Neural Network}
 \end{acronym}
 
 \begin{document}
@@ -95,7 +96,7 @@ This work is framed within the theory of mirror neurons, and contributes towards
 
 In~\cite{salvi:2012:smcb}, the action information was known a~priori~(it was assumed that in a particular experiment the robot was performing, for example, a ``grasp'' action, and the model was aware of this information). By contrast, in this work we relax that assumption, and we estimate the action performed by a human user during a \hr{} collaborative task. We do this estimation by employing statistical inference methods and \acp{HMM}.
 
-Several psychology studies~\cite{aglioti:2008:basketball,knoblich:2001:psychsci} indicate that perceptual input can be linked with the human action system for predicting future outcomes of actions, \ie, the effect of actions.
+Several psychology studies~\cite{aglioti:2008:basketball,knoblich:2001:psychsci} indicate that perceptual input can be linked with the human action system for predicting future outcomes of actions, \ie, the effect of actions. In \cite{kim:2017:nn}, the authors use a \ac{MTRNN} to have an artificial simulated agent infer human intention from information about object affordances and human actions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Proposed Approach}
