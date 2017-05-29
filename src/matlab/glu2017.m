@@ -41,22 +41,18 @@ tap1_cell = separate_sequence(tap1, tap1_seglim);
 tap1_BNT = transpose_cell_array(tap1_cell);
 
 %% classification
-fprintf('===============================================================\n\n');
-fprintf('classification of segmented sequence tap1 (ground truth: 1):\n');
-counter = zeros(4,1);
+scores_map = containers.Map;
 for ex = 1:length(tap1_BNT)
-    score(1) = mhmm_logprob(tap1_BNT{ex}, hmm1_prior, hmm1_trans, hmm1_mu, hmm1_Sigma, hmm1_mixmat);
-    %score(2) = mhmm_logprob(tap1_BNT{ex}, hmm0_prior, hmm0_trans, hmm0_mu, hmm0_Sigma, hmm0_mixmat); % garbage
-    %score(3) = mhmm_logprob(tap1_BNT{ex}, hmm3_prior, hmm3_trans, hmm3_mu, hmm3_Sigma, hmm3_mixmat);
-    %score(4) = mhmm_logprob(tap1_BNT{ex}, hmm4_prior, hmm4_trans, hmm4_mu, hmm4_Sigma, hmm4_mixmat);
-    score(2) = mhmm_logprob(tap1_BNT{ex}, hmm3_prior, hmm3_trans, hmm3_mu, hmm3_Sigma, hmm3_mixmat);
-    score(3) = mhmm_logprob(tap1_BNT{ex}, hmm4_prior, hmm4_trans, hmm4_mu, hmm4_Sigma, hmm4_mixmat);
-    %score
-    [~,local_winner] = max(score);
-    counter(local_winner) = counter(local_winner)+1;
-    fprintf('sequence %d, winner: %d\n', ex, local_winner);
-    clear score winner;
+    fprintf('===============================================================\n\n');
+    fprintf('test data: tap1, subsequence: %d, ground truth: 1 (tap)\n', ex);
+    scores_map('tap') = mhmm_logprob(tap1_BNT{ex}, hmm1_prior, hmm1_trans, hmm1_mu, hmm1_Sigma, hmm1_mixmat);
+    scores_map('grasp') = mhmm_logprob(tap1_BNT{ex}, hmm3_prior, hmm3_trans, hmm3_mu, hmm3_Sigma, hmm3_mixmat);
+    scores_map('push') = mhmm_logprob(tap1_BNT{ex}, hmm4_prior, hmm4_trans, hmm4_mu, hmm4_Sigma, hmm4_mixmat);
+    %scores_map('garbage') = mhmm_logprob(tap1_BNT{ex}, hmm0_prior, hmm0_trans, hmm0_mu, hmm0_Sigma, hmm0_mixmat);
+    k = keys(scores_map)
+    v = values(scores_map)
+    v2 = cell2mat(v);
+    v_norm = normalise(1 - v2/sum(v2)) % TODO check
+    [m,i] = max(cell2mat(values(scores_map)));
+    fprintf('winner: %d (%s)\n', i, k{i});
 end;
-[~,global_winner] = max(counter);
-fprintf('majority winner: %d\n\n', global_winner);
-clear ex counter global_winner;
