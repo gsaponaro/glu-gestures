@@ -1,0 +1,14 @@
+%!TEX encoding = UTF-8 Unicode
+
+\section{Related Work}
+
+% Here you can specify that the fact that the action is known a priori is used during training of the model
+% the model can be then used to infer the action as well, but based on the evidence from the other nodes.
+% In the current study, in contrast:
+% 1) we want to infer the action from the HMMs during training
+% 2) during testing we may merge the infromation from the HMMs with that from the Bayesian Network.
+In~\cite{salvi:2012:smcb}, the action information was known a~priori~(it was assumed that in a particular experiment the robot was performing, for example, a ``grasp'' action, and the model was aware of this information). By contrast, in this work we relax that assumption, and we estimate the action performed by a human user during a \hr{} collaborative task. We do this estimation by employing statistical inference methods and \acp{HMM}.
+
+Several psychology studies~\cite{aglioti:2008:basketball,knoblich:2001:psychsci} indicate that perceptual input can be linked with the human action system for predicting future outcomes of actions, \ie, the effect of actions. In~\cite{kim:2017:nn}, the authors use a \ac{MTRNN} to have an artificial simulated agent infer human intention from information about object affordances and human actions.
+
+In~\cite{stramandinoli:2016:icdl}, a model for learning the association of spoken words to sensorimotor representations is proposed, focusing on words that refer to physical actions performed by a robot.
