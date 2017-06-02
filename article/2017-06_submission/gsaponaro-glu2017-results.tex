@@ -4,10 +4,18 @@
 
 \acp{BN} are flexible, they can be used for different purposes
 
-\subsection{Object Shape Estimation}
+%\subsection{Object Shape Estimation}
 
-estimate object shape, based on inferred action (gesture) and resulting effect. $p(O \mid A, E)$
+%estimate object shape, based on inferred action (gesture) and resulting effect. $p(O \mid A, E)$
 
 \subsection{Effect Prediction}
 
-$p(E \mid A, O)$
+$p(E \mid A, F)$
+
+\subsection{Prediction of Words}
+
+We compare the \ac{BN} predictive power in terms of word nodes, with and without the Action prior information provided by the Gesture \acp{HMM}.
+
+$p(W \mid A, E, F)$
+
+$p(W \mid E, F)$
