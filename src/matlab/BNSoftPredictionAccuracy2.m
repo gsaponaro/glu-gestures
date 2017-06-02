@@ -1,18 +1,18 @@
 %function results = BNSoftPredictionAccuracy(netobj, questions, answers)
-function results = BNSoftPredictionAccuracy2(netobj, questions, answers)
+function results = BNSoftPredictionAccuracy2(netobj)
 
-Ntest = length(questions);
+%actionnode = BNWhichNode(netobj, 'Action');
+%colornode = BNWhichNode(netobj, 'Color');
+%shapenode = BNWhichNode(netobj, 'Shape');
+%sizenode = BNWhichNode(netobj, 'Size');
+%predictionNodes =  [actionnode colornode shapenode sizenode];
+objvelnode = BNWhichNode(netobj, 'ObjVel');
+objhandvelnode = BNWhichNode(netobj, 'ObjHandVel');
+predictionNodes = [objvelnode objhandvelnode];
 
-actionnode = BNWhichNode(netobj, 'Action');
-colornode = BNWhichNode(netobj, 'Color');
-shapenode = BNWhichNode(netobj, 'Shape');
-sizenode = BNWhichNode(netobj, 'Size');
-predictionNodes =  [actionnode colornode shapenode sizenode];
-
-results = zeros(1,Ntest);
-for qnum = 1:Ntest
+%for qnum = 1:Ntest
     % enter evidence
-    netobj = BNEnterWordEvidence(netobj, questions{qnum}, 0);
+    %netobj = BNEnterWordEvidence(netobj, questions{qnum}, 0);
     % get probabilities for affordance nodes
     marg = marginal_nodes(netobj.engine, predictionNodes);
 %     % convert answers into multidimensional array
@@ -27,6 +27,5 @@ for qnum = 1:Ntest
 %     % compare to answer
 %     scores = ans_array .* marg.T
 %     results(qnum) = sum(scores(:));
-end
-%results = ans_array; % ???
+%end
 results = marg;

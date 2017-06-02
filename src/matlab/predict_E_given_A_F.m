@@ -28,8 +28,16 @@ netobj_lab = BNLearnParameters(netobj_lab);
 
 %% enter node evidence for Action and Features (object) nodes
 nodevaluepairs = {'Action', 'tap', 'Color', 'yellow', 'Shape', 'circle', 'Size', 'small'};
-netobj_lab = BNEnterNodeEvidence(netobj_lab, nodevaluepairs);
+netobj_lab = BNEnterNodeEvidence(netobj_lab, nodevaluepairs, 0);
 
 %% extract predictions as in the first part of BNSoftPredictionAccuracy, now called BNSoftPredictionAccuracy2
-[questions, answers] = ReadInstructionsJudgements('data/instructions_judgement.txt');
-pred_lab = BNSoftPredictionAccuracy2(netobj_lab, questions, answers);
+pred_lab_circle = BNSoftPredictionAccuracy2(netobj_lab);
+pred_lab_circle.T
+
+%% enter node evidence for Action and Features (object) nodes
+nodevaluepairs = {'Action', 'tap', 'Color', 'blue', 'Shape', 'box', 'Size', 'big'};
+netobj_lab = BNEnterNodeEvidence(netobj_lab, nodevaluepairs, 0);
+
+%% extract predictions as in the first part of BNSoftPredictionAccuracy, now called BNSoftPredictionAccuracy2
+pred_lab_box = BNSoftPredictionAccuracy2(netobj_lab);
+pred_lab_box.T
