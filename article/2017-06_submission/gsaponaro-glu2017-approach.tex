@@ -1,12 +1,52 @@
 %!TEX encoding = UTF-8 Unicode
 
-\section{Proposed Approach}
-
-We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods and \acp{HMM}.
-
 \begin{figure}
-  \includegraphics[width=\columnwidth]{fullNetAbstract}
+  \centering
+  \includegraphics[width=0.8\columnwidth]{fullNetAbstract}
   \caption{Abstract representation of the probabilistic dependencies in the model.}
+  \label{fig:model}
 \end{figure}
+
+\section{Proposed Approach}
+Following the method adopted in \cite{salvi:2012:smcb}, we use a Bayesian probabilistic framework to allow a robot to ground the basic world behavior and verbal descriptions associated to it.
+The world behaviour is defined by random variables describing: the actions $A$, defined over the set $\mathcal{A}=\{a_i\}$, object properties $F$, over $\mathcal{F}=\{f_i\}$ and effects $E$, over $\mathcal{E}=\{e_i\}$.
+We denote $X=\{A, F, E\}$ the state of the world as experienced by the robot.
+The verbal descriptions are denoted by the set of words $W=\{w_i\}$.
+Consequently, the relationships between words and concepts, are expressed by the joint probability distribution $p(X,W)$ of actions, object features, effects, and words in the speoken utterance.
+
+This joint probability distribution, that is illustrated by the part of Figure~\ref{fig:model} enclosed in the dashed box, is estimated by the robot in an ego-centric way through interaction with the environment as in \cite{salvi:2012:smcb}.
+As a consequence, during learning, the robot knows what action it is performing with certainty, and the variable $A$ assumes a deterministic value.
+In this study, however, we wish to generalize this model to the observation of external (human) agents.
+For this reason, the model is extended with a perception module capable of inferring the action of the agent from visual inputs.
+This corresponds to the Gesture \acp{HMM} block in Figure~\ref{fig:model}.
+
+The two models may be combined in different ways:
+\begin{enumerate}
+\item the Gesture \acp{HMM} may provide a hard decision on the action performed by the human to the \ac{BN},
+\item the Gesture \acp{HMM} may provide a posterior distribution to the \ac{BN},
+\item if the task is to infer the action, the posterior from the Gesture \acp{HMM} and that from the \ac{BN} may be combined as following, assuming they provide independent information:
+  $$ p(A) = p_{\mbox{\scriptsize HMM}}(A)p_{\mbox{\scriptsize BN}}(A).$$
+\end{enumerate}
+
+%Once good estimates of this function are obtained, we can use it for many purposes, for example:
+%\begin{itemize}
+%\item to compute associations between words and concepts, by estimating the structure of the joint pdf $p(X,W)$;
+%\item to plan the robot actions given verbal instructions from the user in a given context, through $p(A, F \mid W)$;
+%\item to provide context to the speech recognizer by computing $p(W \mid X)$.
+%\end{itemize}
+%
+
+%We use a discrete \ac{BN} to represent the joint probability distribution of affordance nodes $X$ and words $W$
+%\begin{eqnarray}
+% P(X,W) & = & \prod_{w_i \in W} p(w_i \mid X_{w_i} ) p(X),
+%\label{eq:model}
+%\end{eqnarray}
+%where $X_{w_i}$ is the subset of nodes of $X$ that are parents of word $w_i$.
+%
+%This factorization is illustrated by the part of Figure~\ref{fig:model} enclosed in the dashed box.
+%
+%This model is trained letting the robot learn 
+%
+%Differently from We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods and \acp{HMM}.
 
 In the experimental section, we will show that what the robot has learned subjectively or alone~(by self-exploration, knowing the action identity as a prior~\cite{salvi:2012:smcb}), can subsequently be used when observing a new agent~(human), provided that the actions can be estimated with \acp{HMM} as in~\cite{saponaro:2013:crhri}.
