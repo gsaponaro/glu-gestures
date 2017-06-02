@@ -20,5 +20,17 @@ cd(LanguageBoostrapping_root);
 nodevaluepairs = {'Action', 'tap', 'ObjVel', 'fast', 'ObjHandVel', 'fast', 'Color', 'yellow', 'Shape', 'circle', 'Size', 'small'};
 netobj_lab = BNEnterNodeEvidence(netobj_lab, nodevaluepairs, 0);
 
+%% print Word node names
+wordNames = netobj_lab.nodeNames(1,9:end);
+
 %% extract predictions (posteriors) of Words being said
-wordProbsWithA = BNGetWordProbs(netobj_lab)
+wordProbsWithA = BNGetWordProbs(netobj_lab);
+
+%% print Word->prob table
+numWords = 49;
+resultWithA = cell(numWords,2);
+for (w = 1:numWords)
+    resultWithA{w,1} = string(wordNames(w));
+    resultWithA{w,2} = wordProbsWithA(1,w);
+end
+resultWithA
