@@ -3,7 +3,7 @@
 \begin{figure}
   \centering
   \includegraphics[width=0.8\columnwidth]{fullNetAbstract}
-  \caption{Abstract representation of the probabilistic dependencies in the model.}
+  \caption{Abstract representation of the probabilistic dependencies in the model. Shaded nodes are observable or measurable in the present study, and edges indicate Bayesian dependency.}
   \label{fig:model}
 \end{figure}
 
@@ -45,4 +45,4 @@ p(A) = \phmm(A) \, \pbn(A).
 %
 %Differently from We follow the method adopted in the evaluation part of~\cite{salvi:2012:smcb}, however, instead of assuming that the action identities are known to the robot agent, we estimate them by observing an external agent and applying statistical inference methods and \acp{HMM}.
 
-In the experimental section, we will show that what the robot has learned subjectively or alone~(by self-exploration, knowing the action identity as a prior~\cite{salvi:2012:smcb}), can subsequently be used when observing a new agent~(human), provided that the actions can be estimated with \acp{HMM} as in~\cite{saponaro:2013:crhri}.
+In the experimental section, we will show that what the robot has learned subjectively or alone~(by self-exploration, knowing the action identity as a prior~\cite{salvi:2012:smcb}), can subsequently be used when observing a new agent~(human), provided that the actions can be estimated with \acp{HMM} as in~\cite{saponaro:2013:crhri}. We will use \acfp{BN}, which are a probabilistic model that represents random variables and conditional dependencies on a graph, such as in Fig.~\ref{fig:model}. One of the advantages of using \acp{BN} is that their expressive power allows the marginalization over any set of variables given any other set of variables.
