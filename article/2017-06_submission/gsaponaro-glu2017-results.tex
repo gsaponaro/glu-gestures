@@ -2,19 +2,37 @@
 
 \section{Experimental Results}
 
-
-%\subsection{Object Shape Estimation}
-
-%estimate object shape, based on inferred action (gesture) and resulting effect. $p(O \mid A, E)$
+We present two types of results: prediction over the effects of actions, and prediction over the word descriptions. In the latter case, we compare the words obtained by the \acl{BN} in the presence of an action prior, with the ones obtained in the absence of the action information.
 
 \subsection{Effect Prediction}
 
-$p(E \mid A, F)$
+We predict the values of effect-related nodes~(Object Velocity and relative Object--Hand Velocity), given the action node~(provided by the hard decision of Gesture \acp{HMM} when classifying SHOW FIG) and nodes related to object features~(Shape and Size).
+
+TODO expand:
+\begin{verbatim}
+  p(ObjVel, ObjHandVel | A=tap, F=circle small)
+
+  =
+
+      0.0478    0.0000    0.0000
+      0.2921    0.1266    0.0098
+      0.0001    0.0903    0.4332
+\end{verbatim}
+\ie medium or fast motion.
+
+\begin{verbatim}
+  p(ObjVel, ObjHandVel | A=tap, F=box big)
+
+  =
+
+      0.9984    0.0002    0.0002
+      0.0005    0.0002    0.0000
+      0.0000    0.0001    0.0003
+\end{verbatim}
+\ie slow or no motion.
 
 \subsection{Prediction of Words}
 
-We compare the \ac{BN} predictive power in terms of word nodes, with and without the Action prior information provided by the Gesture \acp{HMM}.
+We compare the \ac{BN} predictive power in terms of word nodes, with and without the Action prior information provided by the Gesture \acp{HMM}. In other words, we compare~$p(W \mid A, E, F)$ with~$p(W \mid E, F)$.
 
-$p(W \mid A, E, F)$
-
-$p(W \mid E, F)$
+TODO work in progress, looking for a combination of E,F which makes the result significant
