@@ -1,5 +1,7 @@
 %!TEX encoding = UTF-8 Unicode
 
+\section{Proposed Approach}
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\columnwidth]{fullNetAbstract}
@@ -7,7 +9,10 @@
   \label{fig:model}
 \end{figure}
 
-\section{Proposed Approach}
+TODO - Start with the general idea (combine a network that can infer the actions just looking at the objects, effects, and verbal descriptions with the inference of the action via the user movements). Them open a subsection to explain the bayesian network, then another for the HMM and another for the fusion of the two.
+
+MAIN CONTRIBUTION - In this paper, we extend~\cite{salvi:2012:smcb} by relaxing the known-action assumption. We estimate the action performed by a human user during a \hr{} collaborative task, by employing statistical inference methods and \acp{HMM}. This provides two advantages: (i)~we can infer the executed action during training; (ii)~at testing time, we can merge the action information obtained from gesture recognition with the information about affordances.
+
 Following the method adopted in~\cite{salvi:2012:smcb}, we use a Bayesian probabilistic framework to allow a robot to ground the basic world behavior and verbal descriptions associated to it. The world behavior is defined by random variables describing: the actions~$A$, defined over the set~$\mathcal{A} = \{a_i\}$, object properties~$F$, over $\mathcal{F} = \{f_i\}$, and effects~$E$, over~$\mathcal{E} = \{e_i\}$. We denote~$X = \{A, F, E\}$ the state of the world as experienced by the robot. The verbal descriptions are denoted by the set of words~$W = \{w_i\}$. Consequently, the relationships between words and concepts are expressed by the joint probability distribution~$p(X,W)$ of actions, object features, effects, and words in the spoken utterance.
 
 This joint probability distribution, that is illustrated by the part of Fig.~\ref{fig:model} enclosed in the dashed box, is estimated by the robot in an ego-centric way through interaction with the environment, as in~\cite{salvi:2012:smcb}. As a consequence, during learning, the robot knows what action it is performing with certainty, and the variable~$A$ assumes a deterministic value. In this study, however, we wish to generalize this model to the observation of external~(human) agents, as shown in Fig.~\ref{fig:experimental_setup}. For this reason, the model is now extended with a perception module capable of inferring the action of the agent from visual inputs. This corresponds to the Gesture \acp{HMM} block in Fig.~\ref{fig:model}.
