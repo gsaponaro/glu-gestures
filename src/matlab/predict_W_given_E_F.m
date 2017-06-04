@@ -8,13 +8,10 @@ addpath('.');
 % set to full path to <vislab svn repository>/app/baltazar/Affordances/speech/bayesian_net
 LanguageBoostrapping_root = ('~/NOBACKUP/vislab/app/baltazar/Affordances/speech/bayesian_net');
 
-addpath([LanguageBoostrapping_root '/matlab'])
+addpath(genpath([LanguageBoostrapping_root '/matlab']))
 
 %% load Bayesian Network from .mat
 load('BN_lab.mat');
-
-%% go to directory with BN functions
-cd(LanguageBoostrapping_root);
 
 %% old experiment
 % %% enter node evidence for Action, Effect and Features (object) nodes

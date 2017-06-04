@@ -8,13 +8,10 @@ addpath('.');
 % set to full path to <vislab svn repository>/app/baltazar/Affordances/speech/bayesian_net
 LanguageBoostrapping_root = ('~/NOBACKUP/vislab/app/baltazar/Affordances/speech/bayesian_net');
 
-addpath([LanguageBoostrapping_root '/matlab'])
+addpath(genpath([LanguageBoostrapping_root '/matlab']))
 
 %% load Bayesian Network from .mat
 load('BN_lab.mat');
-
-%% go to directory with BN functions
-cd(LanguageBoostrapping_root);
 
 %% uncomment to re-train the network
 % %% 1) create initial word-affordance network
