@@ -40,7 +40,14 @@ We compare the probability of word occurrence in two situations:
 \item when the robot prior knowledge includes, in addition to the above, evidence about the action as observed from the Gestures \acp{HMM}, in particular \emph{Action=tap}.
 \end{enumerate}
 
-Fig.~TODO shows the resulting word occurrence probabilities of the two cases, respectively in blue and in red. We can interpret the difference in the predictions as follows:
+\begin{figure}
+\centering
+\includegraphics[width=0.9\columnwidth]{partialfig.eps}
+\caption{Variation of word occurrence probabilities when we add the tap action evidence~(obtained from the Gesture \acp{HMM}) to the initial evidence about object features and effects.}
+\label{fig:probdiff}
+\end{figure}
+
+Fig.~\ref{fig:probdiff} shows the variation in word occurrence probabilities between the two cases. We can interpret the difference in the predictions as follows:
 \begin{itemize}
 \item the probabilities of words related to tapping and pushing increase when a tapping action evidence from the Gestures \acp{HMM} is introduced; conversely, the probabilities of other action words~(touching and poking) decreases;
 
