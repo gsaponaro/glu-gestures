@@ -32,22 +32,33 @@ load('BN_lab.mat');
 %% save Bayesian Network to .mat
 %save('BN_lab.mat', 'netobj_lab');
 
-%% enter node evidence for Action and Features (object) nodes
-nodevaluepairs = {'Action', 'tap', 'Color', 'yellow', 'Shape', 'circle', 'Size', 'small'};
+%% experiment 1: small sphere
+% enter node evidence for Action and Features (object) nodes
+nodevaluepairs = {'Action', 'tap', 'Shape', 'circle', 'Size', 'small'};
 netobj_lab = BNEnterNodeEvidence(netobj_lab, nodevaluepairs, 0);
 
-%% extract predictions (posteriors)
-posteriornodes = {'ObjVel', 'ObjHandVel'};
+% extract predictions (posteriors)
+posteriornodes = {'ObjVel'};
 pred_lab_circle = BNSoftPredictionAccuracy2(netobj_lab, posteriornodes);
-disp('p(ObjVel, ObjHandVel | A=tap, F=circle small)');
-pred_lab_circle.T
+figure;
+bar(pred_lab_circle.T);
+set(gca, 'FontSize', 20);
+set(gca, 'xticklabel', {'slow','medium','fast'});
+% sphere = circle
+ylabel('$p(E \mid A=\mathrm{tap}, F=\mathrm{sphere, small})$', 'Interpreter', 'latex');
+ylim([0 1]);
+print('-depsc', 'effectpred_sphere.eps');
 
-%% enter node evidence for Action and Features (object) nodes
-nodevaluepairs = {'Action', 'tap', 'Color', 'blue', 'Shape', 'box', 'Size', 'big'};
-disp('p(ObjVel, ObjHandVel | A=tap, F=box big)');
+%% experiment 2: big box
+% enter node evidence for Action and Features (object) nodes
+nodevaluepairs = {'Action', 'tap', 'Shape', 'box', 'Size', 'big'};
 netobj_lab = BNEnterNodeEvidence(netobj_lab, nodevaluepairs, 0);
 
-%% extract predictions (posteriors)
-posteriornodes = {'ObjVel', 'ObjHandVel'};
+% extract predictions (posteriors)
 pred_lab_box = BNSoftPredictionAccuracy2(netobj_lab, posteriornodes);
-pred_lab_box.T
+figure;
+bar(pred_lab_box.T);
+set(gca, 'FontSize', 20);
+set(gca, 'xticklabel', {'slow','medium','fast'});
+ylabel('$p(E \mid A=\mathrm{tap}, F=\mathrm{box, big})$', 'Interpreter', 'latex');
+print('-depsc', 'effectpred_box.eps');

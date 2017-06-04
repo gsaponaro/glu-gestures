@@ -6,30 +6,18 @@ We present two types of results: prediction over the effects of actions, and pre
 
 \subsection{Effect Prediction}
 
-We predict the values of effect-related nodes~(Object Velocity and relative Object--Hand Velocity), given the action node~(provided by the hard decision of Gesture \acp{HMM} when classifying SHOW FIG) and nodes related to object features~(Shape and Size).
+We report the posterior value of the Object Velocity effect node, given prior information about the action~(provided by the hard decision of Gesture \acp{HMM} TODO EXPAND) and also about object features~(Shape and Size). Fig.~\ref{fig:effect_pred} shows the computed predictions in two cases. Fig.~\ref{fig:effect_pred:sphere} shows the anticipated object velocity when the human user performs the tapping action onto a small spherical object, whereas Fig.~\ref{fig:effect_pred:box} displays it when the target object is a big box.
 
-TODO expand:
-\begin{verbatim}
-  p(ObjVel, ObjHandVel | A=tap, F=circle small)
-
-  =
-
-      0.0478    0.0000    0.0000
-      0.2921    0.1266    0.0098
-      0.0001    0.0903    0.4332
-\end{verbatim}
-\ie medium or fast motion.
-
-\begin{verbatim}
-  p(ObjVel, ObjHandVel | A=tap, F=box big)
-
-  =
-
-      0.9984    0.0002    0.0002
-      0.0005    0.0002    0.0000
-      0.0000    0.0001    0.0003
-\end{verbatim}
-\ie slow or no motion.
+\begin{figure*}
+    %\centering
+    \subfloat[][Prediction of the movement effect on a small sphere.]
+    { \includegraphics[width=0.45\linewidth]{effectpred_sphere.eps} \label{fig:effect_pred:sphere} } \quad
+    %
+    \subfloat[][Prediction of the movement effect on a big box.]
+    { \includegraphics[width=0.45\linewidth]{effectpred_box.eps} \label{fig:effect_pred:box} }
+    \caption{Object velocity predictions, given prior information~(from Gesture \acp{HMM}) that the human user performs a tapping action.}
+    \label{fig:effect_pred}
+\end{figure*}
 
 \subsection{Prediction of Words}
 
