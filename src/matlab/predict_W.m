@@ -18,9 +18,28 @@ netobj_lab = BNEnterNodeEvidence(netobj_lab, {'Color', 'yellow', ...
 probs = BNGetWordProbs(netobj_lab);
 netobj_lab = BNEnterNodeEvidence(netobj_lab, {'Action', 'tap'});
 probs2 = BNGetWordProbs(netobj_lab);
-plot(probs)
-hold on
-plot(probs2,'r')
+
+probdiff = probs2-probs;
+figure;
+bar(probdiff)
+set(gca, 'xtick', 1:length(netobj_lab.WORDNODES))
+set(gca, 'xticklabel', netobj_lab.nodeNames(netobj_lab.WORDNODES))
+xtickangle(90)
+%print -dsvg fullfig
+print('-depsc', 'fullfig.eps');
+
+toplot = abs(probdiff)>0.02
+figure;
+bar(probdiff(toplot))
+set(gca, 'xtick', 1:length(netobj_lab.WORDNODES(toplot)))
+set(gca, 'xticklabel', netobj_lab.nodeNames(netobj_lab.WORDNODES(toplot)))
+xtickangle(90)
+%print -dsvg partialfig
+print('-depsc', 'partialfig.eps');
+
+%plot(probs)
+%hold on
+%plot(probs2,'r')
 
 % Word node names
 %wordNames = netobj_lab.nodeNames(1,9:end);
