@@ -19,13 +19,11 @@ cd(LanguageBoostrapping_root);
 netobj_lab = BNEnterNodeEvidence(netobj_lab, {'Color', 'yellow', ...
     'Size', 'big', 'Shape', 'circle', 'ObjVel', 'fast'});
 probs = BNGetWordProbs(netobj_lab);
-probs = probs/sum(probs);
 netobj_lab = BNEnterNodeEvidence(netobj_lab, {'Action', 'tap'});
 probs2 = BNGetWordProbs(netobj_lab);
-probs2 = probs2/sum(probs2);
 plot(probs)
 hold on
 plot(probs2,'r')
 
 % Word node names
-wordNames = netobj_lab.nodeNames(1,9:end);
+%wordNames = netobj_lab.nodeNames(1,9:end);
