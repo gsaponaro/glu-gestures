@@ -28,11 +28,12 @@ xtickangle(90)
 %print -dsvg fullfig
 print('-depsc', 'fullfig.eps');
 
-toplot = abs(probdiff)>0.02
+toplot = abs(probdiff)>0.02;
 figure;
-bar(probdiff(toplot))
+bar(probdiff(toplot));
 set(gca, 'xtick', 1:length(netobj_lab.WORDNODES(toplot)))
 set(gca, 'xticklabel', netobj_lab.nodeNames(netobj_lab.WORDNODES(toplot)))
+ylabel('$\Delta p(w_i)$', 'Interpreter','latex', 'FontSize', 20);
 xtickangle(90)
 %print -dsvg partialfig
 print('-depsc', 'partialfig.eps');
