@@ -19,7 +19,23 @@ In this paper, we combine (1)~the robot affordance model of~\cite{salvi:2012:smc
 \subsection{Affordance--Words \acl{BN}}
 \label{sec:bn}
 
-Following the method adopted in~\cite{salvi:2012:smcb}, we use a Bayesian probabilistic framework to allow a robot to ground the basic world behavior and verbal descriptions associated to it. The world behavior is defined by random variables describing: the actions~$A$, defined over the set~$\mathcal{A} = \{a_i\}$, object properties~$F$, over $\mathcal{F} = \{f_i\}$, and effects~$E$, over~$\mathcal{E} = \{e_i\}$. We denote~$X = \{A, F, E\}$ the state of the world as experienced by the robot. The verbal descriptions are denoted by the set of words~$W = \{w_i\}$. Consequently, the relationships between words and concepts are expressed by the joint probability distribution~$p(X,W)$ of actions, object features, effects, and words in the spoken utterance.
+Following the method adopted in~\cite{salvi:2012:smcb}, we use a Bayesian probabilistic framework to allow a robot to ground the basic world behavior and verbal descriptions associated to it. The world behavior is defined by random variables describing: the actions~$A$, defined over the set~$\mathcal{A} = \{a_i\}$, object properties~$F$, over $\mathcal{F} = \{f_i\}$, and effects~$E$, over~$\mathcal{E} = \{e_i\}$. We denote~$X = \{A, F, E\}$ the state of the world as experienced by the robot. The verbal descriptions are denoted by the set of words~$W = \{w_i\}$. Consequently, the relationships between words and concepts are expressed by the joint probability distribution~$p(X,W)$ of actions, object features, effects, and words in the spoken utterance. The symbolic variables and their discrete values are listed in Table~\ref{tab:bnsymb}.
+
+\begin{table}
+    \centering
+    \caption{Symbolic variables of the \acl{BN} from~\cite{salvi:2012:smcb} which we use in this work, with corresponding discrete values obtained from clustering. In addition, the full model also includes word variables~(see Fig.~\ref{fig:model}), whose values are the probabilities of the words occurring in the associated verbal description of an experiment - PUT THIS LAST PHRASE AS FOOTNOTE?.}
+    \label{tab:bnsymb}
+    \begin{tabular}{*{3}{l}} % left-aligned columns
+    \toprule
+    name   & description     & values \\
+    \midrule
+    Action & action          & grasp, tap, touch \\
+    Shape  & object shape    & sphere, box \\
+    Size   & object size     & small, medium, big \\
+    ObjVel & object velocity & slow, medium, fast \\
+    \bottomrule
+    \end{tabular}
+\end{table}
 
 This joint probability distribution, that is illustrated by the part of Fig.~\ref{fig:model} enclosed in the dashed box, is estimated by the robot in an ego-centric way through interaction with the environment, as in~\cite{salvi:2012:smcb}. As a consequence, during learning, the robot knows what action it is performing with certainty, and the variable~$A$ assumes a deterministic value. This assumption is relaxed in the present study, by extending the model to the observation of external~(human) agents as explained below.
 
