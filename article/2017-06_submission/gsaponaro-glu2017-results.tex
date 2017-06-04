@@ -33,6 +33,20 @@ TODO expand:
 
 \subsection{Prediction of Words}
 
-We compare the \ac{BN} predictive power in terms of word nodes, with and without the Action prior information provided by the Gesture \acp{HMM}. In other words, we compare~$p(W \mid A, E, F)$ with~$p(W \mid E, F)$.
+We compare the probability of word occurrence in two situations:
+\begin{enumerate}
+\item when the robot prior knowledge~(evidence in the \ac{BN}) includes information about object features and effects only, in particular \emph{Color=yellow, Size=big, Shape=circle, ObjVel=fast};
 
-TODO work in progress, looking for a combination of E,F which makes the result significant
+\item when the robot prior knowledge includes, in addition to the above, evidence about the action as observed from the Gestures \acp{HMM}, in particular \emph{Action=tap}.
+\end{enumerate}
+
+Fig.~TODO shows the resulting word occurrence probabilities of the two cases, respectively in blue and in red. We can interpret the difference in the predictions as follows:
+\begin{itemize}
+\item the probabilities of words related to tapping and pushing increase when a tapping action evidence from the Gestures \acp{HMM} is introduced; conversely, the probabilities of other action words~(touching and poking) decreases;
+
+\item interestingly, the probability of the word \emph{rolling}~(which is an effect of an action onto an oject) also increases when the tapping action evidence is entered. Even though the initial evidence of case~$1$ already included some effect information, it is only now, when the robot perceives that the physical action was a tap, that the event rolling is associated.
+\end{itemize}
+
+%We compare the \ac{BN} predictive power in terms of word nodes, with and without the Action prior information provided by the Gesture \acp{HMM}. In other words, we compare~$p(W \mid A, E, F)$ with~$p(W \mid E, F)$.
+
+%TODO work in progress, looking for a combination of E,F which makes the result significant
