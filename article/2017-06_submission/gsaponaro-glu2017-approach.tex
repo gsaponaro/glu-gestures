@@ -2,14 +2,11 @@
 
 \section{Proposed Approach}
 
-TODO list the 3 actions, address Lorenzo's remark about correspondence between human and robot perspectives
+In this paper, we combine (1)~the robot affordance model of~\cite{salvi:2012:smcb}, which associates verbal descriptions to the physical interactions of an agent with the environment, with (2)~the gesture recognition system of~\cite{saponaro:2013:crhri}, which infers the type of action from human user movements. We consider three manipulation actions performed by agent(s) onto objects on a table~(see Fig.~\ref{fig:experimental_setup}): grasp, tap, and touch. We reason on the effects of these actions onto the objects of the world, and on the co-occurring verbal description of the experiments.
 
-% BN can infer the actions just looking at the objects, effects, and verbal descriptions
-% +
-% HMM - inference of the action via the user movements
-%Them open a subsection to explain the bayesian network, then another for the HMM and another for the fusion of the two.
+% TODO kinematic compatibility? (Lor)
 
-In this paper, we combine (1)~the robot affordance model of~\cite{salvi:2012:smcb}, which associates verbal descriptions to the physical interactions of an agent with the environment, with (2)~the gesture recognition system of~\cite{saponaro:2013:crhri}, which infers the type of action from human user movements. Our main contribution is that of extending~\cite{salvi:2012:smcb} by relaxing the known-action assumption. We estimate the action performed by a human user during a \hr{} collaborative task, by employing statistical inference methods and \acp{HMM}. This provides two advantages. First, we can infer the executed action during training. Secondly, at testing time we can merge the action information obtained from gesture recognition with the information about affordances.
+Our main contribution is that of extending~\cite{salvi:2012:smcb} by relaxing the known-action assumption. We estimate the action performed by a human user during a \hr{} collaborative task, by employing statistical inference methods and \acp{HMM}. This provides two advantages. First, we can infer the executed action during training. Secondly, at testing time we can merge the action information obtained from gesture recognition with the information about affordances.
 
 \begin{figure}
   \centering
