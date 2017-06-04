@@ -15,6 +15,14 @@
 %\usepackage{epigraph}
 \usepackage{subfig}
 \usepackage{tabularx}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning} % was: shapes
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{shapes.geometric}
+\tikzstyle{circle}=[shape=circle,minimum size=0.7cm,very thick]
+\tikzstyle{every path}=[very thick]
+
 \usepackage{hyperref}
 \usepackage[update,prepend]{epstopdf}
 \graphicspath{{figures/}}
@@ -28,13 +36,15 @@
 \email{gsaponaro@isr.tecnico.ulisboa.pt, giampi@kth.se, l.jamone@qmul.ac.uk, alex@isr.tecnico.ulisboa.pt}
 
 % custom commands and frequent expressions that require typesetting care
+\newcommand{\AffWords}{Affordance--Words}
 \newcommand{\eg}{e.\,g.}
-\newcommand{\ie}{i.\,e.}
+\newcommand{\FB}{Forward--Backward}
 \newcommand{\HR}{Human--Robot}
 \newcommand{\HRI}{\HR{} Interaction}
 \newcommand{\hh}{human--human}
 \newcommand{\hr}{human--robot}
 \newcommand{\hri}{\hr{} interaction}
+\newcommand{\ie}{i.\,e.}
 
 \newcommand{\phmm}{\ensuremath{p_{\text{HMM}}}}
 \newcommand{\pbn}{\ensuremath{p_{\text{BN}}}}
@@ -77,6 +87,7 @@
 \acro{BN}{Bayesian Network}
 \acro{HMM}{Hidden Markov Model}
 \acro{MTRNN}{Multiple Timescales Recurrent Neural Network}
+\acro{PDF}{Probability Density Function}
 \end{acronym}
 
 \begin{document}
