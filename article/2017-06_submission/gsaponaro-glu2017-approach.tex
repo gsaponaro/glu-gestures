@@ -7,7 +7,7 @@ In this paper, we combine (1)~the robot affordance model of~\cite{salvi:2012:smc
 % TODO kinematic compatibility? (Lor)
 
 Our main contribution is that of extending~\cite{salvi:2012:smcb} by relaxing the assumption that the action is known during the learning phase.
-This assumption is acceptable when the robot learns through self exploration and interaction with the environment, but must be relaxed if the robot need to generalize the acquired knowledge through the observation of another (human) agent.
+This assumption is acceptable when the robot learns through self-exploration and interaction with the environment, but must be relaxed if the robot needs to generalize the acquired knowledge through the observation of another~(human) agent.
 We estimate the action performed by a human user during a \hr{} collaborative task, by employing statistical inference methods and \acp{HMM}. This provides two advantages. First, we can infer the executed action during training. Secondly, at testing time we can merge the action information obtained from gesture recognition with the information about affordances.
 
 \begin{figure}
@@ -94,7 +94,7 @@ with the common \FB{} inference algorithm. In Sec.~\ref{sec:combination}, we dis
 \subsection{Combining the \acs{BN} with Gesture \acsp{HMM}}
 \label{sec:combination}
 
-In this study we wish to generalize the model of~\cite{salvi:2012:smcb} by observing external~(human) agents, as shown in Fig.~\ref{fig:experimental_setup}. For this reason, the full model is now extended with a perception module capable of inferring the action of the agent from visual inputs. This corresponds to the Gesture \acp{HMM} block in Fig.~\ref{fig:model}. The \AffWords{} Bayesian Network (BN) model and the Gestures \acp{HMM} may be combined in different ways:
+In this study we wish to generalize the model of~\cite{salvi:2012:smcb} by observing external~(human) agents, as shown in Fig.~\ref{fig:experimental_setup}. For this reason, the full model is now extended with a perception module capable of inferring the action of the agent from visual inputs. This corresponds to the Gesture \acp{HMM} block in Fig.~\ref{fig:model}. The \AffWords{} \acf{BN} model and the Gestures \acp{HMM} may be combined in different ways:
 \begin{enumerate}
 \item the Gesture \acp{HMM} may provide a hard decision on the action performed by the human~(\ie, considering only the top result) to the \ac{BN},
 
