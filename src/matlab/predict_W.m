@@ -35,12 +35,4 @@ set(gca, 'xtick', 1:length(netobj_lab.WORDNODES(toplot)))
 set(gca, 'xticklabel', netobj_lab.nodeNames(netobj_lab.WORDNODES(toplot)))
 ylabel('$\Delta p(w_i)$', 'Interpreter','latex', 'FontSize', 20);
 xtickangle(90)
-%print -dsvg partialfig
 print('-depsc', 'partialfig.eps');
-
-%plot(probs)
-%hold on
-%plot(probs2,'r')
-
-% Word node names
-%wordNames = netobj_lab.nodeNames(1,9:end);
