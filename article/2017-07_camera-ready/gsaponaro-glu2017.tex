@@ -1,0 +1,132 @@
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage{INTERSPEECH_v2}
+
+\usepackage[T1]{fontenc} % output - specifies encoding used in fonts; needs full LaTeX distribution to produce good-looking output
+\usepackage[utf8]{inputenc} % input - type accented characters directly from keyboard
+\usepackage[english]{babel} % internationalization - hyphenation, typographic rules for one or more languages
+
+\usepackage[nolist]{acronym}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+%\usepackage{epigraph}
+\usepackage{subfig}
+\usepackage{tabularx}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix,positioning} % was: shapes
+\usetikzlibrary{decorations.text}
+\usetikzlibrary{shapes.geometric}
+\tikzstyle{circle}=[shape=circle,minimum size=0.7cm,very thick]
+\tikzstyle{every path}=[very thick]
+
+\usepackage{hyperref}
+\usepackage[update,prepend]{epstopdf}
+\graphicspath{{figures/}}
+
+\title{Interactive Robot Learning of Gestures, Language and Affordances}
+\name{Giovanni~Saponaro$^1$, Lorenzo~Jamone$^{2,1}$, Alexandre~Bernardino$^1$, Giampiero~Salvi$^3$}
+\address{
+  $^1$Institute for Systems and Robotics\\Instituto Superior Técnico, Universidade de Lisboa, Lisbon, Portugal\\
+  $^2$ARQ~(Advanced Robotics at Queen Mary)\\School of Electronic Engineering and Computer Science, Queen Mary University of London, UK\\
+  $^3$KTH Royal Institute of Technology, Stockholm, Sweden}
+\email{gsaponaro@isr.tecnico.ulisboa.pt, l.jamone@qmul.ac.uk, alex@isr.tecnico.ulisboa.pt, giampi@kth.se}
+
+% custom commands and frequent expressions that require typesetting care
+\newcommand{\AffWords}{Affordance--Words}
+\newcommand{\eg}{e.\,g.}
+\newcommand{\FB}{Forward--Backward}
+\newcommand{\HR}{Human--Robot}
+\newcommand{\HRI}{\HR{} Interaction}
+\newcommand{\hh}{human--human}
+\newcommand{\hr}{human--robot}
+\newcommand{\hri}{\hr{} interaction}
+\newcommand{\ie}{i.\,e.}
+
+\newcommand{\phmm}{\ensuremath{p_{\text{HMM}}}}
+\newcommand{\pbn}{\ensuremath{p_{\text{BN}}}}
+
+% examples and useful stuff from INTERSPEECH template
+
+% \begin{table}
+%   \caption{This is an example of a table}
+%   \label{tab:example}
+%   \centering
+%   \begin{tabular}{ r@{}l  r }
+%     \toprule
+%     \multicolumn{2}{c}{\textbf{Ratio}} &
+%                                          \multicolumn{1}{c}{\textbf{Decibels}} \\
+%     \midrule
+%     $1$                       & $/10$ & $-20$~~~             \\
+%     $1$                       & $/1$  & $0$~~~               \\
+%     $2$                       & $/1$  & $\approx 6$~~~       \\
+%     $3.16$                    & $/1$  & $10$~~~              \\
+%     $10$                      & $/1$  & $20$~~~              \\
+%     $100$                     & $/1$  & $40$~~~              \\
+%     $1000$                    & $/1$  & $60$~~~              \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=\linewidth]{figure.pdf}
+%  \caption{Schematic diagram of speech production.}
+%  \label{fig:speech_production}
+%\end{figure}
+
+% For technical reasons, the proceedings editor will strip all active links from the papers during processing. Hyperlinks can be included in your paper, if written in full, e.\,g.\ ``http://www.foo.com/index.html''. The link text must be all black.
+% Please make sure that they present no problems in printing to paper.
+
+% list of acronyms
+\begin{acronym}
+\acro{AI}{Artificial Intelligence}
+\acro{BN}{Bayesian Network}
+\acro{HMM}{Hidden Markov Model}
+\acro{MTRNN}{Multiple Timescales Recurrent Neural Network}
+\acro{PDF}{Probability Density Function}
+\end{acronym}
+
+\begin{document}
+
+\maketitle
+%
+\begin{abstract} % max 200 words
+A growing field in robotics and \ac{AI} research is \hr{} collaboration, whose target is to enable effective teamwork between humans and robots. However, in many situations human teams are still superior to \hr{} teams, primarily because human teams can easily agree on a common goal with language, and the individual members observe each other effectively, leveraging their shared motor repertoire and sensorimotor resources. This paper shows that for cognitive robots it is possible, and indeed fruitful, to combine knowledge acquired from interacting with elements of the environment~(affordance exploration) with the probabilistic observation of another agent's actions.
+
+We propose a model that unites (i)~learning robot affordances and word descriptions with (ii)~statistical recognition of human gestures with vision sensors. We discuss theoretical motivations, possible implementations, and we show initial results which highlight that, after having acquired knowledge of its surrounding environment, a humanoid robot can generalize this
+knowledge to the case when it observes another agent~(human partner) performing the same motor actions previously executed during training.
+\end{abstract}
+\noindent\textbf{Index Terms}: cognitive robotics, gesture recognition, object affordances
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{gsaponaro-glu2017-introduction}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{gsaponaro-glu2017-related_work}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{gsaponaro-glu2017-approach}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{gsaponaro-glu2017-results}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{gsaponaro-glu2017-conclusions}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Acknowledgements}
+This research was partly supported by the CHIST-ERA project IGLU and by the FCT project~UID/EEA/50009/2013.
+We thank Konstantinos~Theofilis for his software and help permitting the acquisition of human hand coordinates in \hri{} scenarios with the iCub robot.%~(\url{http://wiki.icub.org/wiki/OpenNI2}). % TODO uncomment
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%The reference format is the standard IEEE one. References should be numbered in order of appearance
+%\newpage
+%\balance
+\bibliographystyle{IEEEtran}
+\bibliography{glu2017_bibliography}
+
+\end{document}
