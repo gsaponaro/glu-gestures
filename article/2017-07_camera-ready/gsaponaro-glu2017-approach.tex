@@ -6,8 +6,6 @@ In this paper, we combine (1)~the robot affordance model of~\cite{salvi:2012:smc
 We consider three \emph{manipulative gestures} corresponding to physical actions performed by agent(s) onto objects on a table~(see Fig.~\ref{fig:experimental_setup}): grasp, tap, and touch.
 We reason on the effects of these actions onto the objects of the world, and on the co-occurring verbal description of the experiments. In the complete framework, we will use \acfp{BN}, which are a probabilistic model that represents random variables and conditional dependencies on a graph, such as in Fig.~\ref{fig:model}. One of the advantages of using \acp{BN} is that their expressive power allows the marginalization over any set of variables given any other set of variables.
 
-% TODO kinematic compatibility? (Lor)
-
 Our main contribution is that of extending~\cite{salvi:2012:smcb} by relaxing the assumption that the action is known during the learning phase.
 This assumption is acceptable when the robot learns through self-exploration and interaction with the environment, but must be relaxed if the robot needs to generalize the acquired knowledge through the observation of another~(human) agent.
 We estimate the action performed by a human user during a \hr{} collaborative task, by employing statistical inference methods and \acp{HMM}. This provides two advantages. First, we can infer the executed action during training. Secondly, at testing time we can merge the action information obtained from gesture recognition with the information about affordances.
@@ -87,11 +85,7 @@ As for the gesture recognition \acsp{HMM}, we use the models that we previously 
 
 The gesture recognition models are represented in Fig.~\ref{fig:hmms}, and correspond to the Gesture \acp{HMM} block in Fig.~\ref{fig:model}. The \ac{HMM} for one gesture is defined by a set of (hidden) discrete states~$\mathcal{S} = \{s_1, \dots, s_Q\}$ which model the temporal phases comprising the dynamic execution of the gesture, and by a set of parameters~$\lambda = \{ A, B, \Pi \}$, where~$A = \{ a_{ij} \}$ is the transition probability matrix, $a_{ij}$ is the transition probability from state~$s_i$ at time~$t$ to state~$s_j$ at time~$t+1$, $B = \{ f_i \}$ is the set of $Q$~observation probability functions~(one per state~$i$) with continuous mixtures of Gaussian values, and~$\Pi$ is the initial probability distribution for the states.
 
-At recognition~(testing) time, we obtain likelihood scores of a new gesture being classified
-%, \eg, $p(\text{grasp})=0.6, p(\text{tap})=0.3, p(\text{touch})=0.1$,
-with the common \FB{} inference algorithm. In Sec.~\ref{sec:combination}, we discuss different ways in which the output information of the gesture recognizer can be combined with the \acl{BN} of words and affordances.
-%, we can either keep the full probabilistic information of all the gestures~(soft decision) or consider only the best result~(hard decision). See Sec.~\ref{sec:combination} for further details.
-% Each state is associated to an emission \acl{PDF} which is a mixture of Gaussians. The \acp{HMM} are independent from each other.}
+At recognition~(testing) time, we obtain likelihood scores of a new gesture being classified with the common \FB{} inference algorithm. In Sec.~\ref{sec:combination}, we discuss different ways in which the output information of the gesture recognizer can be combined with the \acl{BN} of words and affordances.
 
 \subsection{Combining the \acs{BN} with Gesture \acsp{HMM}}
 \label{sec:combination}
