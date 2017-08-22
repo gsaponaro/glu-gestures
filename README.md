@@ -1,7 +1,7 @@
 # glu-gestures
 This repository contains code and material for this paper:
 
-* Giovanni Saponaro, Lorenzo Jamone, Alexandre Bernardino and Giampiero Salvi. Interactive Robot Learning of Gestures, Language and Affordances. International Workshop on Grounding Language Understanding (GLU), INTERSPEECH 2017.
+* Giovanni Saponaro, Lorenzo Jamone, Alexandre Bernardino and Giampiero Salvi. Interactive Robot Learning of Gestures, Language and Affordances. International Workshop on Grounding Language Understanding (GLU), INTERSPEECH 2017. [[article](http://www.isr.tecnico.ulisboa.pt/~gsaponaro/publications/saponaro-glu2017.pdf)]
 
 ## Description
 
