@@ -1,6 +1,7 @@
 \documentclass{article}
-\usepackace[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage{amssymb}        % for \varnothing
 
 \title{Merging evidence from BN and HMM}
 \author{Giampiero Salvi}
@@ -8,8 +9,8 @@
 \begin{document}
 \maketitle
 
-\newcommand{\pbn}{\ensuremath P_{\mbox{BN}}}
-\newcommand{\phmm}{\ensuremath P_{\mbox{HMM}}}
+\newcommand{\pbn}{\ensuremath P_{\scriptsize\mbox{BN}}}
+\newcommand{\phmm}{\ensuremath P_{\scriptsize\mbox{HMM}}}
 
 Suppose we have two models that define probability distributions over a number of variables.
 We call $y$ the variable in common (in our case Action).
@@ -25,25 +26,27 @@ The hidden Markov model defines (after proper normalization) the probability of 
 
 I can see two cases of inference that we might want to perform:
 \section{First case}
-We want the calculate the probability of $y$ and a (possibly empty) subset subset $X_1 \in X$, given the rest of the variables $X_2\in X, X_1 \cap X_2 = \0$ and the visual evidence $V$:
+We want the calculate the probability of $y$ and a (possibly empty) subset subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$:
 \begin{eqnarray}
 P(y, X_1|X_2, V) &=& \pbn(y, X_1|X_2,V)\phmm(y,X_1|X_2,V) \\
-&=& \pbn(y,X1|X2)\phmm(y|V)
+&=& \pbn(y,X1|X2)\phmm(y|V) \label{bn-hmm1}
 \end{eqnarray}
 This corresponds to just multiplying the probabilities coming from the two models.
 The first step comes from the independence assumption between the two models, and the second is more complicated and I still have to verify it fully.
 
 \section{Second case}
-We want the calculate the probability of a subset subset $X_1 \in X$, given the rest of the variables $X_2\in X, X_1 \cap X_2 = \0$ and the visual evidence $V$, and for doing this we need to marginalize out $y$:
+We want the calculate the probability of a subset subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$, and for doing this we need to marginalize out $y$:
 \begin{eqnarray}
 P(X_1|X_2, V) &=& \sum_y P(y, X_1|X_2, V) \\
-&=& \sum_y \pbn(y,X1|X2)\phmm(y|V)
+&=& \sum_y \pbn(y,X1|X2)\phmm(y|V) \label{bn-hmm2}
 \end{eqnarray}
-So, this case is the same as before, besides the fact that we sum over all possible values for $y$ (that is over our three possible actions).
+So, this case is the same as before, besides the fact that we sum over all possible values for $y$ (that is, over our three possible actions).
 
 I do not think we need anything more complicated than that to solve our problem.
 Of course $X_1$ can correspond to all the $X$ variables and $X_2$ can be the empty set, in which case, we just get the update model
 \begin{eqnarray}
-P(X| V) &=& \sum_y \pbn(y,XX)\phmm(y|V).
+P(X| V) &=& \sum_y \pbn(y,X)\phmm(y|V).
 \end{eqnarray}
+
+In practice, what we can do is to define two functions for the two cases that take as input, besides the BN model and the evidence $X_2$, also the probability distribution for $y$ given by the HMM and internally do the right thing, that is, either just multiply the probabilities as in Eq.\ref{bn-hmm1}, or enters hard evidence for each value of $y$ into the BN, and performs the sum of Eq.\ref{bn-hmm2}
 \end{document}
