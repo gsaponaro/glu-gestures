@@ -25,8 +25,8 @@ The hidden Markov model defines (after proper normalization) the probability of 
 \end{equation}
 
 I can see two cases of inference that we might want to perform:
-\section{First case}
-We want the calculate the probability of $y$ and a (possibly empty) subset subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$:
+\section{First case: inference on $y$}
+We want the calculate the probability of $y$ and a (possibly empty) subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$\footnote{if $X_1 \cup X_2 \neq X$ we will need to marginalize over the missing variables.}:
 \begin{eqnarray}
 P(y, X_1|X_2, V) &=& \pbn(y, X_1|X_2,V)\phmm(y,X_1|X_2,V) \\
 &=& \pbn(y,X1|X2)\phmm(y|V) \label{bn-hmm1}
@@ -34,7 +34,7 @@ P(y, X_1|X_2, V) &=& \pbn(y, X_1|X_2,V)\phmm(y,X_1|X_2,V) \\
 This corresponds to just multiplying the probabilities coming from the two models.
 The first step comes from the independence assumption between the two models, and the second is more complicated and I still have to verify it fully.
 
-\section{Second case}
+\section{Second case: inference without $y$}
 We want the calculate the probability of a subset subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$, and for doing this we need to marginalize out $y$:
 \begin{eqnarray}
 P(X_1|X_2, V) &=& \sum_y P(y, X_1|X_2, V) \\
