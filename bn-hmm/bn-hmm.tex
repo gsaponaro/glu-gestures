@@ -35,7 +35,7 @@ This corresponds to just multiplying the probabilities coming from the two model
 The first step comes from the independence assumption between the two models, and the second is more complicated and I still have to verify it fully.
 
 \section{Second case: inference without $y$}
-We want the calculate the probability of a subset subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$, and for doing this we need to marginalize out $y$:
+We want the calculate the probability of a subset $X_1 \in X$, given the rest of the variables $X_2\in X$, with $X_1 \cap X_2 = \varnothing$ and the visual evidence $V$, and for doing this we need to marginalize out $y$:
 \begin{eqnarray}
 P(X_1|X_2, V) &=& \sum_y P(y, X_1|X_2, V) \\
 &=& \sum_y \pbn(y,X1|X2)\phmm(y|V) \label{bn-hmm2}
