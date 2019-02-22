@@ -1,12 +1,7 @@
 # glu-gestures
 This repository contains code and material for this paper:
 
-* Giovanni Saponaro, Lorenzo Jamone, Alexandre Bernardino and Giampiero Salvi. Interactive Robot Learning of Gestures, Language and Affordances. International Workshop on Grounding Language Understanding (GLU), INTERSPEECH 2017. [[pdf](http://www.isr.tecnico.ulisboa.pt/~gsaponaro/publications/saponaro-glu2017.pdf)]
-
-Notes:
-* the above work is an extension of the following one:
-  - Giampiero Salvi, Luis Montesano, Alexandre Bernardino, José Santos-Victor. Language Bootstrapping: Learning Word Meanings From Perception-Action Association. IEEE Transactions on Systems, Man, and Cybernetics, Part B: Cybernetics, vol. 42, no. 3, June 2012. [[IEEE Xplore](http://ieeexplore.ieee.org/document/6082460/)] [[code](https://github.com/giampierosalvi/AffordancesAndSpeech)]
-* see also the [GLU 2017 workshop website](http://www.speech.kth.se/glu2017/)
+* Giovanni Saponaro, Lorenzo Jamone, Alexandre Bernardino and Giampiero Salvi. Interactive Robot Learning of Gestures, Language and Affordances. International Workshop on Grounding Language Understanding (GLU), INTERSPEECH 2017. [[more information on ISCA Archive](http://www.isca-speech.org/archive/GLU_2017/abstracts/GLU2017_paper_20.html)] [GLU 2017 workshop website](http://www.speech.kth.se/glu2017/)
 
 ## Description
 
