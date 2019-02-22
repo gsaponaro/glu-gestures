@@ -1,7 +1,9 @@
 # glu-gestures
+**Note: this repository if kept for historical reference only. Please refer to https://github.com/gsaponaro/tcds-gestures/ for an extended and more complete version of this work.**
+
 This repository contains code and material for this paper:
 
-* Giovanni Saponaro, Lorenzo Jamone, Alexandre Bernardino and Giampiero Salvi. Interactive Robot Learning of Gestures, Language and Affordances. International Workshop on Grounding Language Understanding (GLU), INTERSPEECH 2017. [[more information on ISCA Archive](http://www.isca-speech.org/archive/GLU_2017/abstracts/GLU2017_paper_20.html)] [GLU 2017 workshop website](http://www.speech.kth.se/glu2017/)
+* Giovanni Saponaro, Lorenzo Jamone, Alexandre Bernardino and Giampiero Salvi. Interactive Robot Learning of Gestures, Language and Affordances. International Workshop on Grounding Language Understanding (GLU), INTERSPEECH 2017. [[more information on ISCA Archive](http://www.isca-speech.org/archive/GLU_2017/abstracts/GLU2017_paper_20.html)] [[GLU 2017 workshop website](http://www.speech.kth.se/glu2017/)]
 
 ## Description
 
